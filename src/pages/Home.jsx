@@ -20,6 +20,24 @@ function Home() {
     }, 500);
   }, []);
 
+  function renderUsers(){
+    return users.map((user) => (
+        <Link to={`/users/${user.id}`} key={user.id}>
+          <User
+          
+            id={user.id}
+            name={user.name}
+            email={user.email}
+            username={user.username}
+          />
+        </Link>
+        ))
+  }
+
+  function renderSkeletonLoading(){
+    return <h1>Loading...</h1>
+  }
+
   // return <h1>{users.length > 0 && users[0].name}</h1>
   // return <h1>{users.length > 0 ? users[0].name : null}</h1>
   // return <h1>{users[0]?.name}</h1>
@@ -30,17 +48,9 @@ function Home() {
       {users.length > 0 ? <h1>{users[0].name}</h1> : <h1>Loading...</h1>}
       <div>
         <h1>List of users with details</h1>
-        {users.map((user) => (
-        <Link to={`/users/${user.id}`} key={user.id}>
-          <User
-          
-            id={user.id}
-            name={user.name}
-            email={user.email}
-            username={user.username}
-          />
-        </Link>
-        ))}
+        
+        {users.length > 0 ? renderUsers() : renderSkeletonLoading()}
+
       </div>
     </div>
   );

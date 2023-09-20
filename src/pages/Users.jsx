@@ -23,9 +23,9 @@ function Users(){
     return (
         <div>
             <Link to={`/`}> Go Back</Link>
-            <h1>{id}</h1>
-            <div>{user.name}</div>
-            <div>{user.username}</div>
+            <p>{id}</p>
+            <p>{user.name}</p>
+            <p>{user.username}</p>
             
         </div>
     );
