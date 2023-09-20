@@ -17,7 +17,7 @@ function Home() {
   useEffect(() => {
     setTimeout(() => {
       fetchUsers();
-    }, 2000);
+    }, 500);
   }, []);
 
   // return <h1>{users.length > 0 && users[0].name}</h1>
